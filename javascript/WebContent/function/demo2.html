@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+	/* 실제로 자바스크립트 엔진은 이렇게 재배열한뒤 해석한다. 변수 hoisting
+	function fn() {
+		var x, y;
+		
+		console.log(x);
+		console.log(y);
+		console.log(z);
+		
+		x = 10;
+		
+		if (x>5) {
+			y = x*100;
+		}
+		
+		console.log(x);
+		console.log(y);
+	}
+	
+	*/
+	
+
+	function fn() {
+		console.log(x);	// 에러가 아님, 밑에서 선언되었기 때문이다.
+		console.log(y);	// 에러가 아님, 위와 마찬가지이다.
+		console.log(z); // 에러! 밑에서 선언이 되지않았기 때문에 에러가 발생한다.
+		
+		var x = 10;
+		
+		if (x>5) {
+			var y = x*100;
+		}
+		
+		console.log(x);
+		console.log(y);
+	}
+	
+	fn();
+</script>
+</html>
