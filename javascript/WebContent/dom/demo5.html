@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form onsubmit="return checkform()" method="post" action="register.jsp">
+		<p>이름:<input type="text" id="user-name" name="username" /></p>
+		<p>소개:<textarea rows="3" id="user-memo" name="usermemo"/></textarea></p>
+		<p>지역:
+			<select id="user-area" name="userarea">
+				<option value=""> --- 선택하세요 --- </option>
+				<option value="seoul" selected="selected">서울</option>
+				<option value="incheon">인천</option>
+				<option value="kyoungi">경기</option>
+				<option value="gangwon">강원</option>
+			</select>
+		</p>
+		<p>언어:
+			<input type="checkbox" id="lang-1" name="lang" value="java"> 자바
+			<input type="checkbox" id="lang-2" name="lang" value="c"> C
+			<input type="checkbox" id="lang-3" name="lang" value="python"> 파이썬
+			<input type="checkbox" id="lang-4" name="lang" value="swift"> 스위프트
+			<input type="checkbox" id="lang-5" name="lang" value="lisp"> 리스프
+		</p>
+		<button>등록</button>
+	</form>
+</body>
+<script type="text/javascript">
+	//select박스에서 선택된 항목의 값 읽어오기
+	var selectedValue = document.getElementById("user-area").value;
+	console.log(selectedValue);
+	
+	function checkform() {
+		//select에서 특정지역이 선택되었는지 확인하기
+		var selectedValue = document.getElementById("user-area").value;
+		if (selectedValue == "") {
+			alert("지역을 선택해주세요.");
+			return false;
+		}
+		
+		//checkbox에서 사용가능한 프로그래밍언어가 하나라도 체크되었는지 확인하기
+		var checkboxList = document.getElementsByTagName("lang"); //nodeList(배열)로 넘어온다
+		var isCheckedLang = false;	// 사용가능한 프로그래밍언어가 한개라도 있는지를 체크하는 플래그변수
+		for (var i=0; i<checkboxList.length; i++) {
+			var checkbox =checkboxList[i];
+			if(checkbox.checked) {	// Checkbox엘리먼트는 checked property를 가지고 있다.
+				isCheckedLang = true;	// checked의 값이 true이면 체크된 체크박스이다.
+			}
+		}
+		if (!isCheckedLang) {
+			alert("사용가능한 프로그래밍 언어를 하나 이상 선택하세요.");
+			return false;
+		}
+		
+		return true;
+	}
+</script>
+</html>

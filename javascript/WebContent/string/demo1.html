@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form>
+		이름 :
+		<input type="text" name="username" id="user-name"/>
+	</form>
+</body>
+<script type="text/javascript">
+	var str = "hello, Javascript String";
+	// length
+	var len = str.length;
+	console.log('문자열의 길이 ', len);
+	
+	// charAt()
+	var charAt = str.charAt(10);
+	console.log('10번째 문자', charAt);
+	
+	// indexOf()
+	var indexOf = str.indexOf('s');
+	console.log('s가 등장하는 위치', indexOf);
+	
+	// search()
+	var search = str.search('s');
+	console.log('s가 등장하는 위치', search);
+	search = '반갑습니다. 010-1234-1234';
+	console.log(search.search(/\d{3}-\d{4}-\d{4}/));
+	
+	//replace()
+	var replace = 'Mr Blue has a blue house a blue car';
+	console.log(replace.replace('blue', 'red')); 	//'Mr Blue has a red house a blue car'
+	replace = 'Mr Blue has a blue house a blue car';
+	//g --> global
+	console.log(replace.replace(/blue/g, 'red')); 	//'Mr Blue has a red house a red car'
+	//i --> (case-insensitive) 대소문자를 구분하지 않는다.(Blue와 blue를 모두 red로 변경한다.)
+	console.log(replace.replace(/blue/gi, 'red')); 	//'Mr red has a red house a red car'
+	
+	//split()
+	var split = '이순신,김유신,강감찬';
+	console.log(split.split(','));
+	
+	//startsWith()
+	console.log('http로 시작하는 url입니까?', 'http://www.daum.net'.startsWith('http'));
+	//endsWith()
+	console.log('com로 끝나는 url입니까?', 'http://www.daum.net'.endsWith('com'));
+	
+	//substr()
+	//substring()
+	console.log('안녕하세요,반갑습니다'.substr(2,5));
+	console.log('안녕하세요,반갑습니다'.substring(2,5));
+
+</script>
+</html>

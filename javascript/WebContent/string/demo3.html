@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+	// 정규표현식(regular expression)
+	var text = 'hello, regexp';
+	var pattern = '';
+	
+	pattern = /hello/;
+	console.log(pattern.test(text));	//true
+	
+	pattern = /h.l/;					//h와 l 사이에 문자가 하나있는 형태를 가지고 있는 문자열이 있는가?
+	console.log(pattern.test(text));	//true
+	
+	pattern = /l{2}/;					//l이 두개가 연달아 있는가?
+	console.log(pattern.test(text));	//true
+	
+	pattern = /[0-9]/;
+	console.log(pattern.test(text));	//false
+	
+	pattern = /[가-힣]/;
+	console.log(pattern.test(text));	//false
+	
+	pattern = /[a-z]/;
+	console.log(pattern.test(text));	//true
+</script>
+</html>
